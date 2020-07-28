@@ -1,0 +1,55 @@
+
+       {% extends 'base.html' %}
+       {% block content %}
+
+       {% load static %}
+       <div class="row">
+        <div class="card" style="width:400px ; height:520px">
+            <img class="card-img-top" src="{% static 'images/vote_case.jpg' %}"  alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Create a Vote Case</h4>
+              <p class="card-text">You can use this option to create a vote case for your own purposes.
+                  This allows you to make custom vote scenario where all the participants can 
+                  caste thier vote to your custom voting scenario
+                 
+
+                    
+              </p>
+              <a href="{% url 'createVoteCase' %}" class="btn btn-primary">Create  new vote case</a>
+            </div>
+            
+          </div>
+                
+          <div class="ml-3">
+                   
+          </div>
+
+          <form method="POST" action=" {% url 'viewVoteCase' %}">
+            {% csrf_token %}
+          <div class="card" style="width:400px; height:520px">
+            <img class="card-img-top" src="{% static 'images/cast_vote.jpg' %}"  alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Caste Your Vote</h4>
+              <p class="card-text">You can caste your vote by proving the vote case code given by the case creator 
+                  If the vote case is a secured one you may need to provide fingerprint.<br> Use our mobile app for fingerprint
+                  authentication. </p>
+
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="code" placeholder="Vote Case code"></div>
+                    </div>
+             
+              
+                    <div class="mt-3">
+                   
+                    </div>
+             
+              <input type = "submit" value="Caste Your Vote" class="btn btn-primary" >
+            
+                  </div></div>
+                </form>
+
+       {% endblock %}
+       
+       
+       

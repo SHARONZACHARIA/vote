@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+    {% block content %}
+    {% load static %}
+    <div class="container-fluid">
+ <div class="card" style="margin:18px;">
+          <div class="card-header">
+           <b>{{votecase.case_name}}   ({{votecase.vcid}}) </b> 
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p> {{votecase.desc}}</p>
+              <footer class="blockquote-footer">{{votecase.controller}} <cite title="Source Title">, Election controller</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+        </div>
+
+
+      {% for candidate in candidates %}
+   <div  class="text-center"style=" margin:18px">   
+    <div class="row" style=" margin: auto;">
+
+    <div class="card" style="width: 18rem; margin:10px;">
+      <img class="card-img-top" src="{% static 'images/vote_case.jpg' %}"  alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title">{{candidate.cname}}</h5>
+        <p class="card-text">{{candidate.desc}}</p>
+        <a href="#" class="btn btn-primary">VOTE</a>
+      </div>
+    </div>
+    
+  </div>
+
+   </div>
+   {% endfor %}
+  </div>
+    
+    {% endblock %}

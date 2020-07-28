@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/curd_db.js' %}"></script>
+
+<div class="card" style="width:85% ;padding:24px;">
+  <div class="card-body">
+    <img class="card-img-top" src="{% static 'images/cast_vote.jpg' %}" alt="Card image" style=" object-fit: contain"
+      height="250px">
+    <h6 class="text-center">
+      Vote Case : {{id}} </h6>
+    <div class="mb-3"></div> 
+
+
+    {% csrf_token %}
+    <div id="votecase-div">
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Vote Case</label>
+        <div class="col-sm-10">
+          <input type="text" id="name" name="name" class="form-control" id="inputEmail3"
+            placeholder="Name of vote case">
+          <input type="hidden" name="vid" value={{id}} id="vid">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Controller </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="controller" name="controller"
+            placeholder="Tell us who controlls the vote case">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="desc" name="desc" placeholder="Describe your case">
+        </div>
+      </div>
+      <div class="mb-2"></div>
+      <div class="text-center">
+        <button id="createcase" class="btn btn-primary btn-success ">Create Vote Case</button>
+      </div>
+    </div>
+
+
+    <div class="mb-5"> </div>
+
+
+    <div id="addcandidates-div">
+      <h5 class="text-center">
+        Add candidates </h5>
+      <div class="mb-3"> </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Candidate's<small></small> Name </label>
+        <div class="col-sm-10">
+          <input id="cname" type="email" class="form-control" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Add description </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="description" placeholder="Describe your candidate">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Candidate Image</label>
+
+        <div class="col-sm-10">
+          <input type="file" class="form-control-file" id="cimage">
+        </div>
+      </div>
+      <div class="mb-4">
+      </div>
+
+
+
+      <div class="text-center">
+        <button id="add_candidates" class="btn btn-primary">Add candidate</button>
+      </div>
+
+      <div class="mb-4">
+
+      </div>
+
+      <hr>
+      <div class="mb-4">
+      </div>
+      <div class="text-center">
+
+
+      </div>
+
+
+
+
+
+
+      <div class="mb-2">
+
+      </div>
+
+
+
+    </div>
+    <button id="done" class="btn btn-primary btn-success ">Done </button>
+  </div>
+  {% endblock %}
